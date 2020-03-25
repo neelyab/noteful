@@ -8,7 +8,7 @@ import './Main.css';
 export default class Main extends Component {
     render() {
         return (
-            <div className="main-container">
+            <div className="main-content">
                 <ul>
                 <Route 
                     exact path='/'

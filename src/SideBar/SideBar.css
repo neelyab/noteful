@@ -7,3 +7,19 @@
 ul {
     list-style:none;
 }
+
+.folder {
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-folder {
+    height: 50px;
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 10px;
+    background-color: white;
+
+}

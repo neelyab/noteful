@@ -3,15 +3,18 @@ import Folder from '../Folder/Folder'
 
 class SideBarMain extends Component {
     render() {
+        const folders = this.props.folders.map(folder=>
+            <Folder key={folder.id} 
+            folderId={folder.id}
+            link={`/folder/${folder.id}`}
+            className='folder'
+            name={folder.name}
+        />) 
         return(
-            this.props.folders.map(folder=>
-
-                <Folder key={folder.id} 
-                folderId={folder.id}
-                link={`/folder/${folder.id}`} 
-                name={folder.name}
-                />
-                )
+        <div>
+           <div>{folders}</div>
+           <button class="add-folder">Add Folder</button>
+        </div>
         )
     }
 }

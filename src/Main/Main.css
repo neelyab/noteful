@@ -1,10 +1,9 @@
-.main-container {
+.main-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    margin: 0 auto;
-    flex-direction: column;
+    width: 50%;
+    flex-direction: row wrap;
 }
 ul {
     list-style: none;

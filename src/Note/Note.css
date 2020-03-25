@@ -1,0 +1,15 @@
+.delete {
+    background-color: white;
+    border: 1px solid black;
+    width: 150px;
+}
+.note {
+    border: 1px solid black;
+    height: 100px;
+    padding: 30px 30px;
+    min-width: 400px;
+   margin-bottom: 10px;
+}
+.note-name {
+    font-size: 30px;
+}

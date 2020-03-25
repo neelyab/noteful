@@ -123,15 +123,24 @@ class App extends Component {
           ]
         }
       }
+      handleBack() {
+        this.props.history.push('/')
+      }
       render() {
   return (
     <main className='App'>
-     <h1><a href='/'>Noteful</a></h1>
-     <SideBar
-     folders={this.state.folders}
-     notes={this.state.notes}/>
-     <Main
-     notes={this.state.notes}/>
+      <div className="main-container">
+        <header className='header'>
+          <h1 className='noteful'><a href='/'>Noteful</a></h1>
+        </header>
+      <div className="body">
+          <SideBar
+          folders={this.state.folders}
+          notes={this.state.notes}/>
+          <Main
+          notes={this.state.notes}/>
+        </div>
+      </div>
     </main>
   );
   }
