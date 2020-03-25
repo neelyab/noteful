@@ -128,7 +128,8 @@ class App extends Component {
     <main className='App'>
      <h1><a href='/'>Noteful</a></h1>
      <SideBar
-     folders={this.state.folders}/>
+     folders={this.state.folders}
+     notes={this.state.notes}/>
      <Main
      notes={this.state.notes}/>
     </main>

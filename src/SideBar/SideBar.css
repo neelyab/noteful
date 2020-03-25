@@ -3,3 +3,7 @@
     width: 25%;
     flex-direction: column;
 }
+
+ul {
+    list-style:none;
+}

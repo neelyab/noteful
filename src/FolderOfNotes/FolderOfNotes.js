@@ -3,7 +3,8 @@ import Note from '../Note/Note'
 
 function FolderOfNotes(props) {
     const myNotes= props.notesFolder
-   const notesFolder= myNotes.map(note => (<Note name={note.name} noteId={note.id}/>)
+    console.log(myNotes);
+   const notesFolder= myNotes.map(note => (<Note name={note.name} id={note.id}/>)
     );
     return <div>{notesFolder}</div>
 

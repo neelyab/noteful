@@ -3,3 +3,6 @@
     flex-flow: column;
 
 }
+ul li {
+    text-decoration: none;
+}

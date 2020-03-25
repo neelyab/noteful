@@ -3,10 +3,9 @@ import Note from '../Note/Note';
 
 class DetailOfNote extends Component {
     render() {
-        console.log(this.props.note);
-        console.log(this.props.note.id)
         return (
-            <div>{this.props.note.name}</div>
+            <div><h2>{this.props.note.name}</h2>
+            <p>{this.props.note.modified}</p></div>
 
         )
     }

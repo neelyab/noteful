@@ -4,7 +4,7 @@ class Note extends Component {
     render(){
         return (
             <li>
-            <a href={`/note/${this.props.noteId}`}>{this.props.name}</a>
+            <a href={`/note/${this.props.id}`}>{this.props.name}</a>
             </li>
         )
     }
