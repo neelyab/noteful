@@ -3,6 +3,7 @@ import './DetailOfNote.css'
 
 class DetailOfNote extends Component {
     render() {
+        console.log(this.props.notes)
         return (
         <div>
             <div className="note-header">

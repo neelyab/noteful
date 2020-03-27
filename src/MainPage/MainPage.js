@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import Note from '../Note/Note';
-import NotefulContext from './NotefulContext';
+import NotefulContext from '../NotefulContext'
 
 class MainPage extends Component {
+    static contextType = NotefulContext;
     render() {
         return(
-           this.props.notes.map(note=>{
+           this.context.notes.map(note=>{
                 return <Note key={note.id} 
                         id={note.id} 
                         name={note.name} 

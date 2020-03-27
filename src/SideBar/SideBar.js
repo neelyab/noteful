@@ -12,19 +12,15 @@ export default class SideBar extends Component {
                 <ul>
                 <Route 
                     exact path='/'
-                    render={()=>
-                        <SideBarMain 
-                        folders={this.props.folders}
-                        />
-                    }
+                   component={SideBarMain}
                  />
                 <Route
                     path='/folder/:folderId'
                     component={SideBarHighlighted}
                  />
-                    < Route 
-                        path ='/note/:noteId'
-                        component={NoteSideBar}
+                 <Route
+                    path='note/:noteId'
+                    component={NoteSideBar}
                     />
                 </ul>
             </div>

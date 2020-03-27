@@ -6,33 +6,32 @@ import DetailOfNote from '../DetailOfNote/DetailOfNote'
 import './Main.css';
 
 export default class Main extends Component {
+    
     render() {
+        console.log(this.props.notes)
+        const notes= this.props.notes
         return (
             <div className="main-content">
                 <ul>
                 <Route 
                     exact path='/'
-                    render={()=>
-                    <MainPage notes={this.props.notes}/>
-                        }
+                    component={MainPage}
                 />
                 <Route
                     path='/folder/:folderId'
-                    render={(routerProps)=>
-                        <FolderOfNotes
-                        notesFolder={this.props.notes.filter(note=>note.folderId===routerProps.match.params.folderId)}
-                        allNotes={this.props.notes}/>
-                    }
+                    component={FolderOfNotes}
                     />
-                    <Route
+                 <Route
                         path='/note/:noteId'
                         render={(routerProps)=>
                         <DetailOfNote 
-                        note={this.props.notes.find(note=>note.id===routerProps.match.params.noteId)}
+                        notes={notes}
+                        matchingNote={this.props.notes.find(note=>note.id===routerProps.match.params.noteId)}
+                        greeting='hello'
                         />
                         }
                         />
-                        </ul>
+                    </ul>
             </div>
         )
     }

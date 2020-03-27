@@ -8,22 +8,24 @@ class NoteSideBar extends Component {
        this.props.history.push('/');
    }
     render(){
-        const matchingNote= this.context.notes.find(note=>note.id===this.props.match.params.noteId);
-        console.log(matchingNote)
-        const matchingFolder = this.context.folders.find(folder=>folder.id===matchingNote.folderId)
-        console.log(matchingFolder)
+        // const matchingNote= this.context.notes.find(note=>note.id===this.props.match.params.noteId);
+        // console.log(matchingNote)
+        // const matchingFolder = this.context.folders.find(folder=>folder.id===matchingNote.folderId)
+        // console.log(matchingFolder)
         return(
             <NotefulContext.Consumer>
-                {(context) => (
-            <div>
-                <h2>{matchingFolder.name}</h2>
-                <button className="back"
-                onClick={this.handleBack}
-                >Back</button>
-            </div>
-            )}
+                {(context)=>( 
+                <div>
+                    <div>
+                    {/* <h2>{context.notes.find(note=>note.id===this.props.match.params.noteId).name}</h2>
+                    <button className="back"
+                    onClick={this.handleBack}
+                    >Back</button> */}
+                </div>
+            </div>)}
             </NotefulContext.Consumer>
-        )
+            )
+           
     }
 }
 export default withRouter(NoteSideBar)

@@ -1,16 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Note from '../Note/Note'
+import NotefulContext from '../NotefulContext'
 
-function FolderOfNotes(props) {
-    const myNotes= props.notesFolder
-    console.log(myNotes);
-   const notesFolder= myNotes.map(note => (<Note key={note.id} name={note.name} id={note.id} modified={note.modified} content={note.content}/>)
+class FolderOfNotes extends Component {
+    static contextType = NotefulContext;
+    render() {
+    const notesFolder=this.context.notes.filter(note=>note.folderId===this.props.match.params.folderId)
+    console.log(notesFolder);
+   const notes= notesFolder.map(note => (<Note key={note.id} name={note.name} id={note.id} modified={note.modified} content={note.content}/>)
     );
-    return (
-        <div>
-                <div>{notesFolder}</div>
-        </div>
-    )
+        return (
+            <div>
+                    <div>{notes}</div>
+            </div>
+        )
+    }
 
 
 }
