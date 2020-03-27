@@ -20,31 +20,11 @@ export default class SideBar extends Component {
                  />
                 <Route
                     path='/folder/:folderId'
-                    render={(routerProps)=> {
-                        const folderToHighlight = this.props.folders.find(folder=>folder.id===routerProps.match.params.folderId);
-                        console.log(folderToHighlight);
-                            return (
-                            <SideBarHighlighted
-                            folder={folderToHighlight}
-                            allFolders={this.props.folders}
-                            />
-                            )
-                        }
-                    }
+                    component={SideBarHighlighted}
                  />
                     < Route 
                         path ='/note/:noteId'
-                        render={(routerProps)=> {
-                            const matchingNote= this.props.notes.find(note=>note.id===routerProps.match.params.noteId);
-                            console.log(matchingNote);
-                            const matchingFolder = this.props.folders.find(folder=>folder.id===matchingNote.folderId)
-                            return (
-                                <NoteSideBar 
-                                folder={matchingFolder}
-                                />
-                                )
-                            }
-                         }
+                        component={NoteSideBar}
                     />
                 </ul>
             </div>

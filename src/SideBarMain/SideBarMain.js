@@ -13,7 +13,7 @@ class SideBarMain extends Component {
         return(
         <div>
            <div>{folders}</div>
-           <button class="add-folder">Add Folder</button>
+           <button className="add-folder">Add Folder</button>
         </div>
         )
     }

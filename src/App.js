@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SideBar from './SideBar/SideBar';
 import Main from './Main/Main';
 import './App.css';
+import NotefulContext from './NotefulContext';
 
 class App extends Component {
     constructor(props){
@@ -123,10 +124,23 @@ class App extends Component {
           ]
         }
       }
+      
       handleBack() {
         this.props.history.push('/')
       }
+     addFolder(){
+
+      }
+      deleteNote(){
+
+      }
       render() {
+        const contextValue={
+          folders: this.state.folders,
+          notes: this.state.notes,
+          addFolder: this.addFolder,
+          deleteNote: this.deleteNote,
+        }
   return (
     <main className='App'>
       <div className="main-container">
@@ -134,11 +148,14 @@ class App extends Component {
           <h1 className='noteful'><a href='/'>Noteful</a></h1>
         </header>
       <div className="body">
+        <NotefulContext.Provider 
+        value={contextValue}>
           <SideBar
           folders={this.state.folders}
           notes={this.state.notes}/>
           <Main
           notes={this.state.notes}/>
+          </NotefulContext.Provider>
         </div>
       </div>
     </main>

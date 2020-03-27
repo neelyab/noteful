@@ -1,30 +1,28 @@
 import React, {Component} from 'react'
 import Folder from '../Folder/Folder'
 import  './SideBarHighlighted.css'
+import NotefulContext from '../NotefulContext'
 
 class SideBarHighlighted extends Component {
+    static contextType= NotefulContext;
     render(){
-        console.log(this.props.folder);
-        console.log(this.props.allFolders);
-        const folder = this.props.folder
 
 //finds the folder to highlight
+        const folderToHighlight = this.context.folders.find(folder=>folder.id===this.props.match.params.folderId);
+        console.log(folderToHighlight);
 
-        const highlightFolder = this.props.allFolders.find(f => f.id === folder.id);
-        console.log(highlightFolder);
-
-//adds highlighted class to folder that nees to be highlighted and maps over all of them to return folder components //
-        const folders =   this.props.allFolders.map(folder=>
+//adds highlighted class to folder that needs to be highlighted and maps over all of them to return folder components //
+        const folders =   this.context.folders.map(folder=>
             <Folder key={folder.id} 
             folderId={folder.id}
-            className={folder.id === highlightFolder.id ? 'folder highlighted' : 'folder'}
+            className={folder.id === folderToHighlight.id ? 'folder highlighted' : 'folder'}
             link={`/folder/${folder.id}`} 
             name={folder.name}
             /> )
         return (
             <div>
             <div>{folders}</div>
-            <button class="add-folder">Add Folder</button>
+            <button className="add-folder">Add Folder</button>
          </div>
         )
     }

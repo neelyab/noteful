@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import Note from '../Note/Note'
+import React, {Component} from 'react';
+import Note from '../Note/Note';
+import NotefulContext from './NotefulContext';
 
 class MainPage extends Component {
     render() {
