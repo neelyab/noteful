@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import './Folder.css'
+import {Link} from 'react-router-dom';
 
 class Folder extends Component {
     render(){
         return (
             <li key={this.props.folderId}
             className={this.props.className}>
-                <a href={this.props.link}>
+                <Link to={this.props.link}>
                 {this.props.name}
-                </a>
+                </Link>
                 </li>
         )
     }

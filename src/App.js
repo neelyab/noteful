@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SideBar from './SideBar/SideBar';
 import Main from './Main/Main';
 import './App.css';
+import {Link} from 'react-router-dom';
 import NotefulContext from './NotefulContext';
 
 
@@ -51,14 +52,17 @@ class App extends Component {
       }
         )
     }  
-    handleBack() {
-        this.props.history.push('/')
-      }
+    // handleBack() {
+    //     this.props.history.push('/')
+    //   }
      addFolder(){
 
       }
-      deleteNote(){
-
+      deleteNote = noteId => {
+        const newNotes = this.state.notes.filter(note=>note.id !== noteId)
+        this.setState({
+          notes: newNotes
+        })
       }
       render() {
 
@@ -72,7 +76,7 @@ class App extends Component {
     <main className='App'>
       <div className="main-container">
         <header className='header'>
-          <h1 className='noteful'><a href='/'>Noteful</a></h1>
+          <h1 className='noteful'><Link to='/'>Noteful</Link></h1>
         </header>
       <div className="body">
         <NotefulContext.Provider 
