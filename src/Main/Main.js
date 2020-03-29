@@ -9,7 +9,6 @@ export default class Main extends Component {
     
     render() {
         console.log(this.props.notes)
-        const notes= this.props.notes
         return (
             <div className="main-content">
                 <ul>
@@ -23,13 +22,7 @@ export default class Main extends Component {
                     />
                  <Route
                         path='/note/:noteId'
-                        render={(routerProps)=>
-                        <DetailOfNote 
-                        notes={notes}
-                        matchingNote={this.props.notes.find(note=>note.id===routerProps.match.params.noteId)}
-                        greeting='hello'
-                        />
-                        }
+                       component={DetailOfNote}
                         />
                     </ul>
             </div>

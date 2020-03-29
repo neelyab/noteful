@@ -3,29 +3,32 @@ import {withRouter} from 'react-router-dom'
 import NotefulContext from '../NotefulContext'
 
 class NoteSideBar extends Component {
-    static contextType = NotefulContext
    handleBack = () =>{
        this.props.history.push('/');
    }
     render(){
-        // const matchingNote= this.context.notes.find(note=>note.id===this.props.match.params.noteId);
-        // console.log(matchingNote)
-        // const matchingFolder = this.context.folders.find(folder=>folder.id===matchingNote.folderId)
-        // console.log(matchingFolder)
-        return(
+    
+        return (
             <NotefulContext.Consumer>
-                {(context)=>( 
+                {(context)=>{
+                    const matchingNote= context.notes.find(note=>note.id===this.props.match.params.noteId) || {};
+                    console.log(matchingNote);
+                    const matchingFolder = context.folders.find(folder=>folder.id===matchingNote.folderId) || {};
+                    console.log(matchingFolder);
+                return (
                 <div>
                     <div>
-                    {/* <h2>{context.notes.find(note=>note.id===this.props.match.params.noteId).name}</h2>
+                    <h2>{matchingFolder.name}</h2>
                     <button className="back"
                     onClick={this.handleBack}
-                    >Back</button> */}
+                    >Back</button>
+                    </div>
                 </div>
-            </div>)}
+                )}
+                }
             </NotefulContext.Consumer>
             )
            
     }
 }
-export default withRouter(NoteSideBar)
+export default withRouter(NoteSideBar);

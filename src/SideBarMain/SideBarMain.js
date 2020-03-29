@@ -8,21 +8,21 @@ class SideBarMain extends Component {
         <NotefulContext.Consumer>
             {(context)=>(  
             <div>
-           <div>{context.folders.map(folder=> {
-               return (
-            <Folder key={folder.id} 
-            folderId={folder.id}
-            link={`/folder/${folder.id}`}
-            className='folder'
-            name={folder.name}
-            />)
-          })
-        }   
-            </div>
-           <button className="add-folder">Add Folder</button>
+                <div>
+                    {context.folders.map(folder=> {
+                        return (
+                        <Folder key={folder.id} 
+                        folderId={folder.id}
+                        link={`/folder/${folder.id}`}
+                        className='folder'
+                        name={folder.name}
+                        />)
+                        })
+                    }   
+                </div>
+            <button className="add-folder">Add Folder</button>
         </div>
         )}
-    
         </NotefulContext.Consumer>
         )
     }
