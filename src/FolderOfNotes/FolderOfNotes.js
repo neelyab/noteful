@@ -6,7 +6,6 @@ class FolderOfNotes extends Component {
     static contextType = NotefulContext;
     render() {
     const notesFolder=this.context.notes.filter(note=>note.folderId===this.props.match.params.folderId)
-    console.log(notesFolder);
    const notes= notesFolder.map(note => (<Note key={note.id} name={note.name} id={note.id} modified={note.modified} content={note.content}/>)
     );
         return (
