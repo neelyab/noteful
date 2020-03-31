@@ -4,6 +4,7 @@ import MainPage from '../MainPage/MainPage'
 import FolderOfNotes from '../FolderOfNotes/FolderOfNotes'
 import DetailOfNote from '../DetailOfNote/DetailOfNote'
 import './Main.css';
+import AddFolder from '../AddFolder/AddFolder';
 
 export default class Main extends Component {
     
@@ -24,6 +25,10 @@ export default class Main extends Component {
                         path='/note/:noteId'
                        component={DetailOfNote}
                         />
+                <Route
+                    path='/add-folder'
+                    component={AddFolder}
+                    />
                     </ul>
             </div>
         )

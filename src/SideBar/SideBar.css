@@ -23,3 +23,9 @@ ul {
     background-color: white;
 
 }
+.active {
+    background-color: lightblue;
+}
+.highlighted {
+    background-color: lightblue;
+ }

@@ -3,13 +3,22 @@ import SideBar from './SideBar/SideBar';
 import Main from './Main/Main';
 import './App.css';
 import {Link} from 'react-router-dom';
+import {Route} from 'react-router-dom'
 import NotefulContext from './NotefulContext';
+import SideBarMain from './SideBarMain/SideBarMain'
+import NoteSideBar from './NoteSideBar/NoteSideBar'
+import MainPage from './MainPage/MainPage'
+import FolderOfNotes from './FolderOfNotes/FolderOfNotes'
+import DetailOfNote from './DetailOfNote/DetailOfNote'
+import AddFolder from './AddFolder/AddFolder'
 
 
 const folderUrl="http://localhost:9090/folders";
 const notesUrl="http://localhost:9090/notes";
 
 class App extends Component {
+  _isMounted= false;
+
     constructor(props){
       super(props);
       this.state ={
@@ -19,6 +28,9 @@ class App extends Component {
       }
     }
     componentDidMount(){
+      console.log('app component mounted')
+     this._isMounted = true;
+
   //fetch folders
       fetch(folderUrl)
       .then(response => {
@@ -29,10 +41,13 @@ class App extends Component {
         return response
         })
       .then(response=>response.json())
-      .then(data=>
+      .then(data=>{
+        console.log(data)
         this.setState({
           folders: data,
+        
         })
+      }
         );
 //fetch notes
         fetch(notesUrl)
@@ -55,14 +70,28 @@ class App extends Component {
     // handleBack() {
     //     this.props.history.push('/')
     //   }
-     addFolder(){
-
-      }
+     addFolder=folder=>{
+       console.log(folder)
+          this.setState({
+            folders: [...this.state.folders, folder],
+        })
+      
+     }
       deleteNote = noteId => {
         const newNotes = this.state.notes.filter(note=>note.id !== noteId)
         this.setState({
           notes: newNotes
         })
+      }
+      deleteFolder= folderId=> {
+        const newFolders = this.state.folders.filter(folder=>folder.id !== folderId);
+        this.setState({
+          folders: newFolders
+        })
+      }
+      componentWillUnmount(){
+        this._isMounted = false;
+        console.log('app component unmounted')
       }
       render() {
 
@@ -71,6 +100,7 @@ class App extends Component {
           notes: this.state.notes,
           addFolder: this.addFolder,
           deleteNote: this.deleteNote,
+          deleteFolder: this.deleteFolder,
           }
   return (
     <main className='App'>
@@ -81,13 +111,47 @@ class App extends Component {
       <div className="body">
         <NotefulContext.Provider 
         value={contextValue}>
-          <SideBar
-          folders={this.state.folders}
-          notes={this.state.notes}
-          />
-          <Main
-          notes={this.state.notes}
-          />
+          <div className="sidebar">
+                <ul>
+                <Route 
+                    exact path='/'
+                    component={SideBarMain}
+                 />
+                <Route
+                    path='/folder/:folderId'
+                    component={SideBarMain}
+                 />
+                 <Route 
+                    path='/note/:noteId'
+                    component={NoteSideBar}
+                    />
+                    <Route
+                        path='/add-folder'
+                        component={SideBarMain}
+                        />
+                </ul>
+            </div>
+         
+            <div className="main-content">
+                <ul>
+                <Route 
+                    exact path='/'
+                    component={MainPage}
+                />
+                <Route
+                    path='/folder/:folderId'
+                    component={FolderOfNotes}
+                    />
+                 <Route
+                        path='/note/:noteId'
+                       component={DetailOfNote}
+                        />
+                <Route
+                    path='/add-folder'
+                    component={AddFolder}
+                    />
+                    </ul>
+            </div>
           </NotefulContext.Provider>
         </div>
       </div>
