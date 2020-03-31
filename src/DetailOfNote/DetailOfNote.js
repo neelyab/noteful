@@ -7,17 +7,15 @@ class DetailOfNote extends Component {
         console.log(this.props.match.params.noteId)
         return (
             <NotefulContext.Consumer>
-                {(context)=>{
-                const note = context.notes.find(note=>note.id===this.props.match.params.noteId) || {};
-                console.log(note)
+                {(context) => {
+                const note=context.notes.find(note=>note.id===this.props.match.params.noteId) || {};
                 return(
                 <div>
                     <div className="note-header">
                         <h2>{note.name}</h2>
                         <p>{note.modified}</p>
-                        <button className="delete">Delete</button>
                     </div>
-                    <p>{note.content}</p>
+                    <p>{}</p>
                 </div>
                 )
                 }}

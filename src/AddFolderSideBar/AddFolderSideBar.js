@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 
 class AddFolderSideBar extends Component {
     handleBack = () =>{
-        this.props.history.push('/');
+        this.props.history.goBack();
     }
     render() {
         return (

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import NotefulContext from '../NotefulContext'
+import {v4 as uuidv4} from 'uuid';
 
 const folderUrl="http://localhost:9090/folders";
 
@@ -17,7 +18,7 @@ class AddFolder extends Component {
     }
     addNewFolder = folder =>{
         const newFolder = {
-            id: Math.floor(Math.random() * 100).toString(),
+            id: uuidv4(),
             name: folder
 
         }

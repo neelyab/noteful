@@ -43,7 +43,7 @@ class Folder extends Component {
                 <NavLink to={this.props.link}>
                 {this.props.name}
                 </NavLink>
-                <button className="delete" id={this.props.id} onClick={()=>handleDeleteFolder(this.props.folderId, context.deleteFolder)}>Delete</button>
+                {/* <button className="delete" id={this.props.id} onClick={()=>handleDeleteFolder(this.props.folderId, context.deleteFolder)}>Delete</button> */}
                 </li>
                 )
                 }

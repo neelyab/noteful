@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Note.css';
 import {Link} from 'react-router-dom';
 import NotefulContext from '../NotefulContext'
+
 function handleDelete(id, callback){
     console.log(id);
     fetch( `http://localhost:9090/notes/${id}`, {
@@ -21,7 +22,6 @@ function handleDelete(id, callback){
     .then(data=> {
         console.log(data);
         callback(id)
-
     })
     .catch(error=> {
         console.log(error)

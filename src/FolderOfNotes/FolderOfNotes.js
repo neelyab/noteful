@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Note from '../Note/Note'
 import NotefulContext from '../NotefulContext'
+import {Link} from 'react-router-dom'
 
 class FolderOfNotes extends Component {
     static contextType = NotefulContext;
@@ -11,6 +12,7 @@ class FolderOfNotes extends Component {
         return (
             <div>
                     <div>{notes}</div>
+                    <Link to='/add-note'><button id="add-folder">Add Note</button></Link>
             </div>
         )
     }
