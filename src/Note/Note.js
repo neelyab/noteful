@@ -36,7 +36,7 @@ class Note extends Component {
                     return(
                         <li className="note">
                         <span className="note-name"><Link to={`/note/${this.props.id}`}>{this.props.name}</Link></span>
-                        <p>{this.props.modified}</p>
+                        <p>{Date(this.props.modified)}</p>
                         <button className="delete" id={this.props.id} onClick={()=>handleDelete(this.props.id, context.deleteNote)}>Delete</button>
                         </li>
                     )}

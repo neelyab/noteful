@@ -12,7 +12,7 @@ class FolderOfNotes extends Component {
         return (
             <div>
                     <div>{notes}</div>
-                    <Link to='/add-note'><button id="add-folder">Add Note</button></Link>
+                    <Link to='/add-note'><button className="add-note">Add Note</button></Link>
             </div>
         )
     }

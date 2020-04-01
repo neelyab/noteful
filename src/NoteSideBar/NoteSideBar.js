@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {withRouter} from 'react-router-dom'
-import NotefulContext from '../NotefulContext'
+import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
+import NotefulContext from '../NotefulContext';
 
 class NoteSideBar extends Component {
    handleBack = () =>{

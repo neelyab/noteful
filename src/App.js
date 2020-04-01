@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import SideBar from './SideBar/SideBar';
-import Main from './Main/Main';
 import './App.css';
 import {Link} from 'react-router-dom';
 import {Route} from 'react-router-dom'
@@ -64,7 +62,11 @@ class App extends Component {
         const newFolders = this.state.folders.filter(folder=>folder.id !== folderId);
         this.setState({folders: newFolders})
       }
-
+      addNote = note => {
+        this.setState({
+          notes: [...this.state.notes, note]
+        })
+      }
       render() {
         const contextValue = {
           folders: this.state.folders,
@@ -72,6 +74,7 @@ class App extends Component {
           addFolder: this.addFolder,
           deleteNote: this.deleteNote,
           deleteFolder: this.deleteFolder,
+          addNote: this.addNote
           }
         return (
           <main className='App'>
