@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
+
 import './App.css';
 import {Link} from 'react-router-dom';
 import {Route} from 'react-router-dom'
 import NotefulContext from './NotefulContext';
-import SideBarMain from './SideBarMain/SideBarMain'
-import NoteSideBar from './NoteSideBar/NoteSideBar'
-import MainPage from './MainPage/MainPage'
-import FolderOfNotes from './FolderOfNotes/FolderOfNotes'
-import DetailOfNote from './DetailOfNote/DetailOfNote'
-import AddFolder from './AddFolder/AddFolder'
-import AddNote from './AddNote/AddNote'
+import SideBarMain from './SideBarMain/SideBarMain';
+import NoteSideBar from './NoteSideBar/NoteSideBar';
+import MainPage from './MainPage/MainPage';
+import FolderOfNotes from './FolderOfNotes/FolderOfNotes';
+import DetailOfNote from './DetailOfNote/DetailOfNote';
+import AddFolder from './AddFolder/AddFolder';
+import AddNote from './AddNote/AddNote';
 
 
 const folderUrl="http://localhost:9090/folders";
@@ -22,6 +23,7 @@ class App extends Component {
       this.state ={
          folders:[],
          notes:[],
+         error: null
       }
     }
 
@@ -40,16 +42,17 @@ class App extends Component {
         return Promise.all([folderRes.json(), notesRes.json()]);
         })
       .then(([folders, notes]) => {
-        console.log(notes,folders)
         this.setState({notes, folders});
       })
       .catch(error => {
         console.error({error});
+        this.setState({
+          error: error
+        })
       });
     }
 
      addFolder=folder=>{
-       console.log(folder)
           this.setState({folders: [...this.state.folders, folder],})
      }
 
@@ -106,7 +109,6 @@ class App extends Component {
                               />
                       </ul>
                   </div>
-              
                   <div className="main-content">
                       <ul>
                       <Route 
@@ -131,6 +133,7 @@ class App extends Component {
                           />
                         </ul>
                   </div>
+                  {this.state.error && (<div>Something went wrong. Please try again later.</div>)}
                 </NotefulContext.Provider>
               </div>
             </div>

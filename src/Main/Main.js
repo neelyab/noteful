@@ -9,7 +9,6 @@ import AddFolder from '../AddFolder/AddFolder';
 export default class Main extends Component {
     
     render() {
-        console.log(this.props.notes)
         return (
             <div className="main-content">
                 <ul>

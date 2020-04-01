@@ -16,7 +16,7 @@ class MainPage extends Component {
                  })
                 
             }
-               <Link to='/add-note'><button class="add-note">Add Note</button></Link>
+               <Link to='/add-note'><button className="add-note">Add Note</button></Link>
             </>
         )
     }

@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import Folder from '../Folder/Folder'
 import NotefulContext from '../NotefulContext'
 import {Link} from 'react-router-dom';
+import ListError from '../ListError/ListError'
 
 class SideBarMain extends Component {
     render() {
-        console.log(this.props.match.params)
         const routerProps = this.props.match.params
         return(
+        <ListError>
         <NotefulContext.Consumer>
             {(context)=>(  
             <div>
@@ -28,6 +29,7 @@ class SideBarMain extends Component {
         </div>
         )}
         </NotefulContext.Consumer>
+        </ListError>
         )
     }
 }

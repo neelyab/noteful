@@ -10,7 +10,6 @@ class AddFolder extends Component {
     constructor(props){
         super(props);
         this.folderName= React.createRef();
-        this.addNewFolder = this.addNewFolder.bind(this)
         
     }
     state= {
@@ -33,7 +32,6 @@ class AddFolder extends Component {
             })
         .then(res=>
             { if(!res.ok){
-                console.log(res)
                 return res.json().then(err=> {
                     throw err
                 })
@@ -41,8 +39,6 @@ class AddFolder extends Component {
             return res.json()
             })
             .then(data=>{
-
-                console.log(data);
                 this.context.addFolder(data)
                 this.props.history.push('/')
             })
@@ -57,7 +53,6 @@ class AddFolder extends Component {
     handleSubmit=e=>{
         e.preventDefault();
         const folderName=this.folderName.current.value;
-        console.log(folderName);
         if (folderName === ''){
             alert('please add a folder name')
         }else {

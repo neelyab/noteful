@@ -55,12 +55,10 @@ class AddNote extends Component {
         const note = this.noteName.current.value;
         const folder = this.folder.current.value;
         const content = this.noteContent.current.value;
-        console.log(note, folder);
         this.addNote(note, folder, content);
     }
     validateNote = () => {
         const note = this.state.note.value.trim();
-        console.log(note)
         if(note.length === 0) {
             return 'Please enter a note name.';
         } 
@@ -79,7 +77,6 @@ class AddNote extends Component {
     }
 
     addNote = (noteName, folder, content) => {
-        console.log('adding note')
         const newNote = {
             id: uuidv4(),
             name: noteName,
@@ -103,7 +100,6 @@ class AddNote extends Component {
             return res.json()
         })
         .then(data=> {
-          console.log(data);
           this.context.addNote(data);
           this.props.history.push('/');
         })
@@ -113,7 +109,6 @@ class AddNote extends Component {
     }
     render(){
         const noteError = this.validateNote();
-        console.log(noteError)
         const folderError = this.validateFolder();
         const noteContentError = this.validateContent();
         return(
@@ -123,7 +118,7 @@ class AddNote extends Component {
                     name="note-name" 
                     id="note-name" 
                     ref={this.noteName} 
-                    defaultValue="Folder Name" 
+                    defaultValue="Note Name" 
                     onChange={e=>this.updateNoteName(e.target.value)}>
                     </input>
                     {this.state.note.touched && (<ValidationError message={noteError}/>)}

@@ -12,9 +12,7 @@ class NoteSideBar extends Component {
             <NotefulContext.Consumer>
                 {(context)=>{
                     const matchingNote= context.notes.find(note=>note.id===this.props.match.params.noteId) || {};
-                    console.log(matchingNote);
                     const matchingFolder = context.folders.find(folder=>folder.id===matchingNote.folderId) || {};
-                    console.log(matchingFolder);
                 return (
                 <div>
                     <div>

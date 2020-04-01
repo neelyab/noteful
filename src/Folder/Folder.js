@@ -3,32 +3,32 @@ import './Folder.css'
 import {NavLink} from 'react-router-dom';
 import NotefulContext from '../NotefulContext'
 
-function handleDeleteFolder(id, cb){
-    console.log(id);
-    console.log(cb)
-    fetch( `http://localhost:9090/folders/${id}`, {
-        method: 'DELETE',
-        headers: {
-            'content-type': 'application/json'
-        },
-    })
-    .then (res => {
-        if (!res.ok){
-            return res.json().then(error=> {
-                throw error
-            })
-        }
-        return res.json()
-    })
-    .then(data=> {
-        console.log(data);
-        cb(id);
+// function handleDeleteFolder(id, cb){
+//     console.log(id);
+//     console.log(cb)
+//     fetch( `http://localhost:9090/folders/${id}`, {
+//         method: 'DELETE',
+//         headers: {
+//             'content-type': 'application/json'
+//         },
+//     })
+//     .then (res => {
+//         if (!res.ok){
+//             return res.json().then(error=> {
+//                 throw error
+//             })
+//         }
+//         return res.json()
+//     })
+//     .then(data=> {
+//         console.log(data);
+//         cb(id);
 
-    })
-    .catch(error=> {
-        console.log(error)
-    })
-}
+//     })
+//     .catch(error=> {
+//         console.log(error)
+//     })
+// }
 
 class Folder extends Component {
     static contextType = NotefulContext;
@@ -38,8 +38,8 @@ class Folder extends Component {
             <NotefulContext.Consumer>
                 {(context)=> {
                 return (
-            <li key={this.props.folderId}
-            className={this.props.folderId === folderToHighlight.id ? 'folder highlighted' : 'folder'}>
+                <li key={this.props.folderId}
+                className={this.props.folderId === folderToHighlight.id ? 'folder highlighted' : 'folder'}>
                 <NavLink to={this.props.link}>
                 {this.props.name}
                 </NavLink>
