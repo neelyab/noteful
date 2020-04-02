@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
+import ListError from '../ListError/ListError'
 
 class NoteSideBar extends Component {
    handleBack = () =>{
@@ -9,6 +10,7 @@ class NoteSideBar extends Component {
     render(){
     
         return (
+            <ListError>
             <NotefulContext.Consumer>
                 {(context)=>{
                     const matchingNote= context.notes.find(note=>note.id===this.props.match.params.noteId) || {};
@@ -25,6 +27,7 @@ class NoteSideBar extends Component {
                 )}
                 }
             </NotefulContext.Consumer>
+            </ListError>
             )
            
     }

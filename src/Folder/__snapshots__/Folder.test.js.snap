@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`folder component renders to UI as expected 1`] = `
+<li
+  className="folder highlighted"
+>
+  <a
+    aria-current={null}
+    href="/link"
+    onClick={[Function]}
+  />
+</li>
+`;

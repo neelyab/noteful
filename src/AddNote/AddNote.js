@@ -3,6 +3,7 @@ import NotefulContext from '../NotefulContext';
 import ValidationError from '../ValidationError/ValidationError';
 import {v4 as uuidv4} from 'uuid';
 import './AddNote.css';
+import NoteError from '../NoteError/NoteError';
 
 class AddNote extends Component {
     static contextType= NotefulContext;
@@ -112,6 +113,7 @@ class AddNote extends Component {
         const folderError = this.validateFolder();
         const noteContentError = this.validateContent();
         return(
+            <NoteError>
             <form className="add-note-form" onSubmit={this.handleSubmit}>
                 <label htmlFor="note-name" id="note-name">Name:</label>
                     <input type="text" 
@@ -153,6 +155,7 @@ class AddNote extends Component {
                     this.validateContent()
                 }>Submit</button>
             </form>
+            </NoteError>
         )
     }
 }

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './Folder.css'
 import {NavLink} from 'react-router-dom';
-import NotefulContext from '../NotefulContext'
+import NotefulContext from '../NotefulContext';
+import PropTypes from 'prop-types';
 
 // function handleDeleteFolder(id, cb){
 //     console.log(id);
@@ -52,4 +53,9 @@ class Folder extends Component {
         )
     }
 }
+Folder.propTypes = {
+    folderId: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  };
 export default Folder;

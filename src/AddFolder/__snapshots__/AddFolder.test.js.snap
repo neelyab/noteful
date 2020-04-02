@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component addfolder renders to UI as expected 1`] = `
+<div>
+  <form
+    className="add-folder"
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="folder-name"
+      id="folder-name"
+    >
+      Enter the folder name:
+    </label>
+    <input
+      defaultValue="Folder Name"
+      id="folder-name"
+      name="folder-name"
+      type="text"
+    />
+    <button
+      id="folder-submit"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
