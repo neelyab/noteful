@@ -68,7 +68,8 @@ class AddFolder extends Component {
                     <label htmlFor="folder-name" id="folder-name">Enter the folder name:</label>
                     <input type="text" name="folder-name" id="folder-name" ref={this.folderName} defaultValue="Folder Name"></input>
                     {error && <p>{error.message}</p>}
-                    <button type="submit" id="folder-submit">Submit</button>
+                    <button type="submit" id="folder-submit">Submit</button>     
+                    <button type="button" className="back" onClick = {()=>this.props.history.push('/')}>Cancel</button>               
                 </form>
             </div>
         )

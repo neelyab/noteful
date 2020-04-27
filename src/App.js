@@ -108,14 +108,18 @@ class App extends Component {
                           path='/note/:noteId'
                           component={NoteSideBar}
                           />
-                          <Route
-                              path='/add-folder'
-                              component={SideBarMain}
-                              /> 
+                             <Route
+                          path='/add-folder'
+                          component={NoteSideBar}
+                          />
+                             <Route
+                          path='/add-note'
+                          component={NoteSideBar}
+                          />
                       </ul>
                   </div>
                   <div className="main-content">
-                      <ul>
+                      <ul classname ="main-note-list">
                       <Route 
                           exact path='/'
                           component={MainPage}

@@ -1,12 +1,11 @@
 .add-note-form {
     display: flex;
-    /* justify-content: center; */
     align-items: space-around;
     flex-direction: column;
-    min-height: 300px;
     padding: 30px 30px;
+    width: 100%;
 }
 #note-content-input {
     height: 100px;
-    width: 100;
+    width: 100%;
 }

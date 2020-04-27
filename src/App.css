@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 
 a {
     text-decoration: none;
@@ -57,12 +60,12 @@ header h1 {
 
 ul {
     list-style:none;
-
+    padding: 10px 10px;
 }
 
 
 /* BUTTONS */
-.add-folder, .back, .add-note, #folder-submit {
+.add-folder, .back, .add-note, #folder-submit, #submit {
     height: 50px;
     width: 100%;
     margin-top: 10px;
@@ -72,6 +75,10 @@ ul {
     box-shadow: 5px 5px 5px lightgray;
     color: #F0F7FA;
 
+}
+.main-note-list {
+    padding: 0;
+    margin: 0;
 }
 
 
