@@ -80,12 +80,12 @@ class AddNote extends Component {
     addNote = (noteName, folder, content) => {
         const newNote = {
             id: uuidv4(),
-            name: noteName,
+            note_name: noteName,
             modified: new Date(),
             folderId: folder,
             content: content
         }
-        fetch(`http://localhost:9090/notes`,{
+        fetch(`http://localhost:8000/api/notes/`,{
             method: 'POST',
             body: JSON.stringify(newNote),
             headers: {
@@ -134,7 +134,7 @@ class AddNote extends Component {
                         return <option key={folder.id} 
                         id={folder.id} 
                         value={folder.id}>
-                        {folder.name}</option>
+                        {folder.folder_name}</option>
                         }
                         )}
                     </select>

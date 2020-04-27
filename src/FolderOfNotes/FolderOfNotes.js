@@ -7,8 +7,9 @@ import ListError from '../ListError/ListError'
 class FolderOfNotes extends Component {
     static contextType = NotefulContext;
     render() {
-    const notesFolder=this.context.notes.filter(note=>note.folderId===this.props.match.params.folderId)
-    const notes= notesFolder.map(note => (<Note key={note.id}  id={note.id} name={note.name} modified={note.modified} folderId={note.folderId} content={note.content}/>)
+    const folderId = Number(this.props.match.params.folderId)
+    const notesFolder=this.context.notes.filter(note=>note.folderId===folderId)
+    const notes= notesFolder.map(note => (<Note key={note.id}  id={note.id} name={note.note_name} modified={note.modified} folderId={note.folderId} content={note.content}/>)
     );
         return (
             <ListError>

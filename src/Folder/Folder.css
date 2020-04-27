@@ -1,0 +1,29 @@
+.delete-folder {
+    border-radius: 5px;
+    width: 60px;
+    display: block;
+    background-color: #0B99D3;
+    border: 1px solid #0B99D3;
+    color: #F0F7FA;
+    margin-left: 10px;
+
+
+}
+
+.folder {
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+/* FOLDER HIGHLIGHTER */
+.active {
+    background:#0B99D3;
+}
+.highlighted {
+    background:rgb(87, 190, 231);
+    color: #F0F7FA;
+ }

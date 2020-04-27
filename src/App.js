@@ -13,8 +13,8 @@ import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
 
 
-const folderUrl="http://localhost:9090/folders";
-const notesUrl="http://localhost:9090/notes";
+const folderUrl="http://localhost:8000/api/folders";
+const notesUrl="http://localhost:8000/api/notes";
 
 class App extends Component {
 
@@ -42,6 +42,8 @@ class App extends Component {
         return Promise.all([folderRes.json(), notesRes.json()]);
         })
       .then(([folders, notes]) => {
+        console.log(notes)
+        console.log(folders)
         this.setState({notes, folders});
       })
       .catch(error => {
@@ -57,12 +59,15 @@ class App extends Component {
      }
 
       deleteNote = noteId => {
-        const newNotes = this.state.notes.filter(note=>note.id !== noteId)
+        const id = Number(noteId)
+        console.log(id)
+        const newNotes = this.state.notes.filter(note=>note.id !== id)
         this.setState({notes: newNotes})
       }
 
       deleteFolder= folderId=> {
-        const newFolders = this.state.folders.filter(folder=>folder.id !== folderId);
+        const id = Number(folderId);
+        const newFolders = this.state.folders.filter(folder=>folder.id !== id);
         this.setState({folders: newFolders})
       }
       addNote = note => {
@@ -106,7 +111,7 @@ class App extends Component {
                           <Route
                               path='/add-folder'
                               component={SideBarMain}
-                              />
+                              /> 
                       </ul>
                   </div>
                   <div className="main-content">

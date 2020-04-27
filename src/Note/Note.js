@@ -11,7 +11,7 @@ class Note extends Component {
         error: null
     }
     handleDelete(id, callback){
-        fetch(`http://localhost:9090/notes/${id}`, {
+        fetch(`http://localhost:8000/api/notes/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -23,7 +23,7 @@ class Note extends Component {
                     throw error
                 })
             }
-            return res.json()
+            // return res.json()
         })
         .then(data=> {
             callback(id)
@@ -38,12 +38,14 @@ class Note extends Component {
                 {(context)=> {
                     return(
                         <NoteError>
-                        <li className="note">
-                        <span className="note-name"><Link to={`/note/${this.props.id}`}>{this.props.name}</Link></span>
-                        <p>{Date(this.props.modified)}</p>
-                        {this.state.error && <p>Something went wrong, please try again later.</p>}
-                        <button className="delete" id={this.props.id} onClick={()=>this.handleDelete(this.props.id, context.deleteNote)}>Delete</button>
-                        </li>
+                        <div className="note">
+                            <li>
+                            <span className="note-name"><Link to={`/note/${this.props.id}`}>{this.props.name}</Link></span>
+                            <p>{Date(this.props.modified)}</p>
+                            {this.state.error && <p>Something went wrong, please try again later.</p>}
+                            <button className="delete" id={this.props.id} onClick={()=>this.handleDelete(this.props.id, context.deleteNote)}>Delete</button>
+                            </li>
+                        </div>
                         </NoteError>
                     )}
                 }
@@ -53,10 +55,10 @@ class Note extends Component {
  
 }
 Note.propTypes = {
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       name: PropTypes.string,
-      modified: PropTypes.string,
-      folderId: PropTypes.string.isRequired,
+      
+      folderId: PropTypes.number.isRequired,
       content: PropTypes.string.isRequired
     };
 

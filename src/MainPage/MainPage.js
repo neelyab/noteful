@@ -13,7 +13,7 @@ class MainPage extends Component {
            {this.context.notes.map(note=>{
                 return <Note key={note.id} 
                         id={note.id} 
-                        name={note.name} 
+                        name={note.note_name} 
                         modified={note.modified} 
                         folderId={note.folderId}
                         content={note.content}/>

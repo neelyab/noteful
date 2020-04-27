@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import NotefulContext from '../NotefulContext'
 import {v4 as uuidv4} from 'uuid';
+import './AddFolder.css'
 
-const folderUrl="http://localhost:9090/folders";
+const folderUrl="http://localhost:8000/api/folders";
 
 class AddFolder extends Component {
     static contextType = NotefulContext;
@@ -18,7 +19,7 @@ class AddFolder extends Component {
     addNewFolder = folder =>{
         const newFolder = {
             id: uuidv4(),
-            name: folder
+            folder_name: folder
 
         }
         fetch(folderUrl,
@@ -62,8 +63,8 @@ class AddFolder extends Component {
     render(){
         const {error} = this.state
         return(
-            <div>
-                <form className="add-folder" onSubmit={this.handleSubmit}>
+            <div className="add-new-folder">
+                <form className="add-folder-form" onSubmit={this.handleSubmit}>
                     <label htmlFor="folder-name" id="folder-name">Enter the folder name:</label>
                     <input type="text" name="folder-name" id="folder-name" ref={this.folderName} defaultValue="Folder Name"></input>
                     {error && <p>{error.message}</p>}

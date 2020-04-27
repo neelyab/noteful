@@ -12,19 +12,17 @@ class SideBarMain extends Component {
         <NotefulContext.Consumer>
             {(context)=>(  
             <div>
-                <div>
                     {context.folders.map(folder=> {
                         return (
                         <Folder key={folder.id} 
                         folderId={folder.id}
                         link={`/folder/${folder.id}`}
                         className='folder'
-                        name={folder.name}
+                        name={folder.folder_name}
                         routerProps= {routerProps}
                         />)
                         })
                     }   
-                </div>
                 <Link to='/add-folder'><button className="add-folder">Add Folder</button></Link>
         </div>
         )}

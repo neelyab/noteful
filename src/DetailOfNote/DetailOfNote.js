@@ -9,17 +9,21 @@ class DetailOfNote extends Component {
         return (
             <NotefulContext.Consumer>
                 {(context) => {
-                const note = context.notes.find(note=>note.id===this.props.match.params.noteId) || {};
-                const date = note.modified;                
+                const notesArray = context.notes
+                const noteId = Number(this.props.match.params.noteId)
+                const note = notesArray.find(note => note.id === noteId) || {};
+                const name = note.note_name;
+                const date =  note.modified; 
+                const content = note.content;      
                 return(
                     <NoteError>
                 <div>
                     <div className="note-header">
-                        <h2>{note.name}</h2>
+                        <h2>{name}</h2>
                         <p>{Date(date)}</p>
                     </div>
                     <div className="note-content">
-                    <p>{note.content}</p>
+                    <p>{content}</p>
                     </div>
                 </div>
                 </NoteError>
