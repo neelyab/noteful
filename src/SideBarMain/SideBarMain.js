@@ -6,7 +6,7 @@ import ListError from '../ListError/ListError'
 
 class SideBarMain extends Component {
     render() {
-        const routerProps = this.props.match.params
+        const routerProps = this.props.history
         return(
         <ListError>
         <NotefulContext.Consumer>
@@ -19,7 +19,7 @@ class SideBarMain extends Component {
                         link={`/folder/${folder.id}`}
                         className='folder'
                         name={folder.folder_name}
-                        routerProps= {routerProps}
+                        routerProps= {{routerProps}}
                         />)
                         })
                     }   
