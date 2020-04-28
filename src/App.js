@@ -11,10 +11,11 @@ import FolderOfNotes from './FolderOfNotes/FolderOfNotes';
 import DetailOfNote from './DetailOfNote/DetailOfNote';
 import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
+import config from './config'
 
 
-const folderUrl="http://localhost:8000/api/folders";
-const notesUrl="http://localhost:8000/api/notes";
+const folderUrl=`${config.API_ENDPOINT}/api/folders`;
+const notesUrl=`${config.API_ENDPOINT}/api/notes`;
 
 class App extends Component {
 
@@ -42,8 +43,6 @@ class App extends Component {
         return Promise.all([folderRes.json(), notesRes.json()]);
         })
       .then(([folders, notes]) => {
-        console.log(notes)
-        console.log(folders)
         this.setState({notes, folders});
       })
       .catch(error => {
@@ -60,13 +59,12 @@ class App extends Component {
 
       deleteNote = noteId => {
         const id = Number(noteId)
-        console.log(id)
         const newNotes = this.state.notes.filter(note=>note.id !== id)
         this.setState({notes: newNotes})
       }
 
-      deleteFolder= folderId=> {
-        const id = Number(folderId);
+      deleteFolder= folderid=> {
+        const id = Number(folderid);
         const newFolders = this.state.folders.filter(folder=>folder.id !== id);
         this.setState({folders: newFolders})
       }
@@ -101,7 +99,7 @@ class App extends Component {
                           component={SideBarMain}
                       />
                       <Route
-                          path='/folder/:folderId'
+                          path='/folder/:folderid'
                           component={SideBarMain}
                       />
                       <Route 
@@ -119,13 +117,13 @@ class App extends Component {
                       </ul>
                   </div>
                   <div className="main-content">
-                      <ul classname ="main-note-list">
+                      <ul className ="main-note-list">
                       <Route 
                           exact path='/'
                           component={MainPage}
                       />
                       <Route
-                          path='/folder/:folderId'
+                          path='/folder/:folderid'
                           component={FolderOfNotes}
                           />
                       <Route

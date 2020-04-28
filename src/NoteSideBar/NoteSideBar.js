@@ -14,7 +14,7 @@ class NoteSideBar extends Component {
             <NotefulContext.Consumer>
                 {(context)=>{
                     const matchingNote= context.notes.find(note=>note.id===this.props.match.params.noteId) || {};
-                    const matchingFolder = context.folders.find(folder=>folder.id===matchingNote.folderId) || {};
+                    const matchingFolder = context.folders.find(folder=>folder.id===matchingNote.folderid) || {};
                 return (
                 <div>
                     <div>

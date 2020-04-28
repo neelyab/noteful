@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import NotefulContext from '../NotefulContext'
 import {v4 as uuidv4} from 'uuid';
 import './AddFolder.css'
+import config from '../config'
 
-const folderUrl="http://localhost:8000/api/folders";
+const folderUrl=`${config.API_ENDPOINT}/api/folders`;
 
 class AddFolder extends Component {
     static contextType = NotefulContext;

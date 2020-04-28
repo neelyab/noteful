@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
 import NoteError from '../NoteError/NoteError';
 import PropTypes from 'prop-types'
+import config from '../config'
 
 
 class Note extends Component {
@@ -11,7 +12,7 @@ class Note extends Component {
         error: null
     }
     handleDelete(id, callback){
-        fetch(`http://localhost:8000/api/notes/${id}`, {
+        fetch(`${config.API_ENDPOINT}/api/notes/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -58,7 +59,7 @@ Note.propTypes = {
       id: PropTypes.number.isRequired,
       name: PropTypes.string,
       
-      folderId: PropTypes.number.isRequired,
+      folderid: PropTypes.number.isRequired,
       content: PropTypes.string.isRequired
     };
 

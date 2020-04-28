@@ -15,7 +15,7 @@ class MainPage extends Component {
                         id={note.id} 
                         name={note.note_name} 
                         modified={note.modified} 
-                        folderId={note.folderId}
+                        folderid={note.folderid}
                         content={note.content}/>
                  })
                 

@@ -15,7 +15,7 @@ class SideBarMain extends Component {
                     {context.folders.map(folder=> {
                         return (
                         <Folder key={folder.id} 
-                        folderId={folder.id}
+                        folderid={folder.id}
                         link={`/folder/${folder.id}`}
                         className='folder'
                         name={folder.folder_name}

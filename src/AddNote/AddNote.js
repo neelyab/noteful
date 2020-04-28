@@ -4,6 +4,7 @@ import ValidationError from '../ValidationError/ValidationError';
 import {v4 as uuidv4} from 'uuid';
 import './AddNote.css';
 import NoteError from '../NoteError/NoteError';
+import config from '../config'
 
 class AddNote extends Component {
     static contextType= NotefulContext;
@@ -82,10 +83,10 @@ class AddNote extends Component {
             id: uuidv4(),
             note_name: noteName,
             modified: new Date(),
-            folderId: folder,
+            folderid: folder,
             content: content
         }
-        fetch(`http://localhost:8000/api/notes/`,{
+        fetch(`${config.API_ENDPOINT}/api/notes`,{
             method: 'POST',
             body: JSON.stringify(newNote),
             headers: {

@@ -3,11 +3,10 @@ import './Folder.css'
 import {NavLink} from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
 import PropTypes from 'prop-types';
+import config from '../config'
 
 function handleDeleteFolder(id, cb){
-    console.log(id);
-    console.log(cb)
-    fetch( `http://localhost:8000/api/folders/${id}`, {
+    fetch( `${config.API_ENDPOINT}/api/folders/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
@@ -21,32 +20,28 @@ function handleDeleteFolder(id, cb){
         }
     })
     .then(data=> {
-        console.log(data);
         cb(id);
 
     })
     .catch(error=> {
-        console.log(error)
+        alert('something went wrong, please try again')
     })
 }
 
 class Folder extends Component {
     static contextType = NotefulContext;
     render(){
-        const folderNum = Number(this.props.routerProps.folderId)
-        console.log(folderNum)
+        const folderNum = Number(this.props.routerProps.folderid)
         const folderToHighlight = this.context.folders.find(folder=> folder.id === folderNum) || {};
-        console.log(folderToHighlight)
-        console.log(this.props.folderId)
         return (
             <NotefulContext.Consumer>
                 {(context)=> {
                 return (
                     <NavLink to={this.props.link}>
-                    <li key={this.props.folderId}
-                    className={this.props.folderId === folderToHighlight.id ? 'folder highlighted' : 'folder'}>
+                    <li key={this.props.folderid}
+                    className={this.props.folderid === folderToHighlight.id ? 'folder highlighted' : 'folder'}>
                     {this.props.name}
-                    <button className="delete-folder" id={this.props.id} onClick={()=>handleDeleteFolder(this.props.folderId, context.deleteFolder)}>Delete</button>
+                    <button className="delete-folder" id={this.props.id} onClick={()=>handleDeleteFolder(this.props.folderid, context.deleteFolder)}>Delete</button>
                     </li>
                 </NavLink>
                 )
@@ -57,7 +52,7 @@ class Folder extends Component {
     }
 }
 Folder.propTypes = {
-    folderId: PropTypes.number.isRequired,
+    folderid: PropTypes.number.isRequired,
     link: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
   };
