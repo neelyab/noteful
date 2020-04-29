@@ -1,4 +1,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+The noteful app is a full stack application that allows the user to keep notes all in one place. The user is able to add and delete folders and notes as well as see the details of a note when an individual note is clicked on.
+
+## Technologies Used
+* HTML
+* CSS
+* Javascript
+* React 
+* Node.js
+* Express
+* PostgreSQL
+* RESTful API
+
+## Screenshots
+
+[! home screen](./img/noteful-app.png)
+[! add folder screen ](./img/add-folder.png)
+[! add note screen](./img/add-note.png)
+[! detail of note screen](./img/detail-of-note.png)
 
 ## Available Scripts
 

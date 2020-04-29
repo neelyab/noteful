@@ -5,29 +5,6 @@ import NotefulContext from '../NotefulContext';
 import PropTypes from 'prop-types';
 import config from '../config'
 
-// function handleDeleteFolder(id, cb, history){
-//     fetch( `${config.API_ENDPOINT}/api/folders/${id}`, {
-//         method: 'DELETE',
-//         headers: {
-//             'content-type': 'application/json'
-//         },
-//     })
-//     .then (res => {
-//         if (!res.ok){
-//             return res.json().then(error=> {
-//                 throw error
-//             })
-//         }
-//     })
-//     .then(data=> {
-//         cb(id);
-//         history.push('/');
-
-//     })
-//     .catch(error=> {
-//         alert('something went wrong, please try again')
-//     })
-// }
 
 class Folder extends Component {
     static contextType = NotefulContext;
