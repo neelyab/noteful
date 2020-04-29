@@ -14,10 +14,10 @@ The noteful app is a full stack application that allows the user to keep notes a
 
 ## Screenshots
 
-[! home screen](./img/noteful-app.png)
-[! add folder screen ](./img/add-folder.png)
-[! add note screen](./img/add-note.png)
-[! detail of note screen](./img/detail-of-note.png)
+![ home screen](./img/noteful-app.png)
+![ add folder screen ](./img/add-folder.png)
+![ add note screen](./img/add-note.png)
+![ detail of note screen](./img/detail-of-note.png)
 
 ## Available Scripts
 
